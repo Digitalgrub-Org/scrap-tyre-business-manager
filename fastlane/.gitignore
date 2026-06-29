@@ -1,0 +1,16 @@
+# fastlane build/report artifacts
+report.xml
+Preview.html
+test_output/
+
+# never commit secrets or local env files
+*.p8
+.env
+.env.*
+!.env.appstore.example
+
+# signing assets (never commit)
+certs/
+*.p12
+*.cer
+*.mobileprovision

@@ -1,0 +1,1 @@
+The app works fully offline with no account or login required. Sample demo data is included on first launch and can be cleared from the Settings screen.

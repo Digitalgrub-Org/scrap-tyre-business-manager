@@ -1,0 +1,1 @@
+scrap,tyre,tire,scrap dealer,inventory,stock,sales,purchase,expenses,recycling

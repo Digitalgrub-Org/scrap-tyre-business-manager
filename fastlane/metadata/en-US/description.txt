@@ -1,0 +1,23 @@
+Scrap Tyre Business Manager is a simple, fast tool for running a scrap tyre trading business. Record daily purchases and sales, track stock by item and weight, log expenses, and see your profit at a glance.
+
+FEATURES
+
+Purchases
+Record every load with supplier, vehicle number, item, quantity, weight, rate, total and payment type.
+
+Sales
+Record sales with customer, item, weight, rate, transport charges and payment status (paid, partial or pending).
+
+Live stock
+Stock updates automatically by quantity and weight, with average purchase rate and total stock value per item.
+
+Expenses
+Log labour, transport and other costs by category so your profit reflects real running costs.
+
+Dashboard and reports
+See a clear business summary and profit overview, and export reports to share.
+
+Built for the yard
+Demo data is included so you can explore the app before entering real records, and you can clear the demo entries in one tap. Add your shop details in the business profile.
+
+Works fully offline. Your data stays on your device.

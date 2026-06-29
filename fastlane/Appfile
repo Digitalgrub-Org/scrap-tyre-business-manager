@@ -1,0 +1,9 @@
+app_identifier "com.digitalgrub.scrapTyreBusinessManager"
+
+# Your team is inferred automatically from the App Store Connect API key,
+# so no Apple ID or team id is needed here.
+#
+# If you ever switch to Apple ID login instead of the API key, set:
+# apple_id "you@example.com"
+# itc_team_id "0000000"
+# team_id "ABCDE12345"
