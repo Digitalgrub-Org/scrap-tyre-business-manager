@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'constants/app_constants.dart';
 import 'providers/settings_provider.dart';
-import 'screens/app_gate.dart';
+import 'screens/auth_gate.dart';
 import 'utils/app_localizations.dart';
 import 'utils/app_theme.dart';
 
@@ -28,7 +28,7 @@ class ScrapTyreApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: const AppGate(),
+      home: const AuthGate(),
     );
   }
 }

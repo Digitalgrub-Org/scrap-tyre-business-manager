@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../constants/app_constants.dart';
 import '../providers/business_provider.dart';
 import '../providers/settings_provider.dart';
+import '../services/auth_service.dart';
 import '../utils/app_localizations.dart';
 import 'business_settings_screen.dart';
 import 'dashboard_screen.dart';
@@ -33,6 +34,31 @@ class _HomeShellState extends State<HomeShell> {
     Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const BusinessSettingsScreen()),
     );
+  }
+
+  Future<void> _signOut() async {
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Sign out?'),
+        content: const Text(
+          'You will need to sign in again to access your data.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Sign out'),
+          ),
+        ],
+      ),
+    );
+    if (confirm == true) {
+      await AuthService().signOut();
+    }
   }
 
   void _openQuickActions() {
@@ -141,6 +167,11 @@ class _HomeShellState extends State<HomeShell> {
             tooltip: 'Business settings',
             onPressed: _openSettings,
             icon: const Icon(Icons.settings_outlined),
+          ),
+          IconButton(
+            tooltip: 'Sign out',
+            onPressed: _signOut,
+            icon: const Icon(Icons.logout_rounded),
           ),
           const SizedBox(width: 5),
         ],
