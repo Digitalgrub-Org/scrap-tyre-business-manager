@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBWwoMM0y9yeenavsrMee3Y1R3eRu96rPo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>879955760620</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.digitalgrub.scrapTyreBusinessManager</string>
+	<key>PROJECT_ID</key>
+	<string>digitalgrub-f40e4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>digitalgrub-f40e4.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:879955760620:ios:98c0647cf62f77b6aa5cc9</string>
+	<key>DATABASE_URL</key>
+	<string>https://digitalgrub-f40e4.firebaseio.com</string>
+</dict>
+</plist>

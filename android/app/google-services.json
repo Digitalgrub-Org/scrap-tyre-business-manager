@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "879955760620",
+    "firebase_url": "https://digitalgrub-f40e4.firebaseio.com",
+    "project_id": "digitalgrub-f40e4",
+    "storage_bucket": "digitalgrub-f40e4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879955760620:android:9aa45c0d82f85351aa5cc9",
+        "android_client_info": {
+          "package_name": "com.digitalgrub.dglocate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSXNzIPmtSQ1hniuy_lnQoiCp56t4Sz1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879955760620-eovorrpnbjjuobciso3pjl3cqujobbjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879955760620:android:d97f514c360861feaa5cc9",
+        "android_client_info": {
+          "package_name": "com.digitalgrub.tyrestockmanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSXNzIPmtSQ1hniuy_lnQoiCp56t4Sz1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879955760620-eovorrpnbjjuobciso3pjl3cqujobbjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
