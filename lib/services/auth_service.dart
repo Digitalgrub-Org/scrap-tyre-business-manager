@@ -31,6 +31,13 @@ class AuthService {
     return _auth.sendPasswordResetEmail(email: email.trim());
   }
 
+  /// Guest mode: signs in anonymously. The user gets a uid (so their data is
+  /// still scoped and cloud stored), but the account has no recoverable
+  /// credential. They can later link email/Google to keep the data.
+  Future<UserCredential> signInAsGuest() {
+    return _auth.signInAnonymously();
+  }
+
   Future<UserCredential> signInWithGoogle() async {
     final google = GoogleSignIn.instance;
     if (!_googleReady) {

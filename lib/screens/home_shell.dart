@@ -37,12 +37,17 @@ class _HomeShellState extends State<HomeShell> {
   }
 
   Future<void> _signOut() async {
+    final isGuest = AuthService().currentUser?.isAnonymous ?? false;
     final confirm = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Sign out?'),
-        content: const Text(
-          'You will need to sign in again to access your data.',
+        title: Text(isGuest ? 'Leave guest mode?' : 'Sign out?'),
+        content: Text(
+          isGuest
+              ? 'You are in guest mode. Guest data is not tied to an email, so '
+                  'signing out will lose access to it. Create an account instead '
+                  'to keep your records.'
+              : 'You will need to sign in again to access your data.',
         ),
         actions: [
           TextButton(

@@ -88,6 +88,20 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  Future<void> _guestSignIn() async {
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    try {
+      await _auth.signInAsGuest();
+    } catch (e) {
+      if (mounted) setState(() => _error = _mapError(e));
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
   Future<void> _forgotPassword() async {
     final email = _email.text.trim();
     if (email.isEmpty) {
@@ -247,6 +261,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(_registerMode
                           ? 'Already have an account? Sign in'
                           : 'New here? Create an account'),
+                    ),
+                    const SizedBox(height: 4),
+                    const Divider(),
+                    const SizedBox(height: 4),
+                    TextButton(
+                      onPressed: _busy ? null : _guestSignIn,
+                      child: const Text('Continue as guest'),
+                    ),
+                    Text(
+                      'No account needed. You can add an email later to back up '
+                      'and sync across devices.',
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
                     ),
                   ],
                 ),
