@@ -7,25 +7,24 @@ class Item {
     required this.lowStockThreshold,
   });
 
-  final int? id;
+  final String? id;
   final String name;
   final String category;
   final String unit;
   final double lowStockThreshold;
 
-  factory Item.fromMap(Map<String, Object?> map) => Item(
-    id: map['id'] as int?,
-    name: map['name']! as String,
-    category: map['category']! as String,
-    unit: map['unit']! as String,
-    lowStockThreshold: (map['low_stock_threshold']! as num).toDouble(),
+  factory Item.fromFirestore(String id, Map<String, dynamic> data) => Item(
+    id: id,
+    name: data['name']! as String,
+    category: data['category']! as String,
+    unit: data['unit']! as String,
+    lowStockThreshold: (data['lowStockThreshold']! as num).toDouble(),
   );
 
-  Map<String, Object?> toMap() => {
-    if (id != null) 'id': id,
+  Map<String, Object?> toFirestore() => {
     'name': name,
     'category': category,
     'unit': unit,
-    'low_stock_threshold': lowStockThreshold,
+    'lowStockThreshold': lowStockThreshold,
   };
 }

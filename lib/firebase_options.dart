@@ -50,21 +50,18 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBSXNzIPmtSQ1hniuy_lnQoiCp56t4Sz1E',
-    appId: '1:879955760620:android:d97f514c360861feaa5cc9',
-    messagingSenderId: '879955760620',
-    projectId: 'digitalgrub-f40e4',
-    databaseURL: 'https://digitalgrub-f40e4.firebaseio.com',
-    storageBucket: 'digitalgrub-f40e4.firebasestorage.app',
+    apiKey: 'AIzaSyBZXGGHrjM5OHKuIBgFbstT9CNJSOBJoR8',
+    appId: '1:926061340226:android:07b54ce80d776c475befdb',
+    messagingSenderId: '926061340226',
+    projectId: 'scrap-tyre-manager',
+    storageBucket: 'scrap-tyre-manager.firebasestorage.app',
   );
-
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBWwoMM0y9yeenavsrMee3Y1R3eRu96rPo',
-    appId: '1:879955760620:ios:98c0647cf62f77b6aa5cc9',
-    messagingSenderId: '879955760620',
-    projectId: 'digitalgrub-f40e4',
-    databaseURL: 'https://digitalgrub-f40e4.firebaseio.com',
-    storageBucket: 'digitalgrub-f40e4.firebasestorage.app',
+    apiKey: 'AIzaSyBR2dangm23MC3gO94n-LU9OHpjMluck_g',
+    appId: '1:926061340226:ios:8539532450d22c8f5befdb',
+    messagingSenderId: '926061340226',
+    projectId: 'scrap-tyre-manager',
+    storageBucket: 'scrap-tyre-manager.firebasestorage.app',
     iosBundleId: 'com.digitalgrub.scrapTyreBusinessManager',
   );
 }

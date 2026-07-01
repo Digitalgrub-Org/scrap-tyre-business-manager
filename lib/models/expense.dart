@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Expense {
   const Expense({
     this.id,
@@ -5,27 +7,31 @@ class Expense {
     required this.type,
     required this.amount,
     required this.notes,
+    this.isDemo = false,
   });
 
-  final int? id;
+  final String? id;
   final DateTime date;
   final String type;
   final double amount;
   final String notes;
+  final bool isDemo;
 
-  factory Expense.fromMap(Map<String, Object?> map) => Expense(
-    id: map['id'] as int?,
-    date: DateTime.parse(map['date']! as String),
-    type: map['type']! as String,
-    amount: (map['amount']! as num).toDouble(),
-    notes: (map['notes'] as String?) ?? '',
-  );
+  factory Expense.fromFirestore(String id, Map<String, dynamic> data) =>
+      Expense(
+        id: id,
+        date: (data['date']! as Timestamp).toDate(),
+        type: data['type']! as String,
+        amount: (data['amount']! as num).toDouble(),
+        notes: (data['notes'] as String?) ?? '',
+        isDemo: (data['isDemo'] as bool?) ?? false,
+      );
 
-  Map<String, Object?> toMap() => {
-    if (id != null) 'id': id,
-    'date': date.toIso8601String(),
+  Map<String, Object?> toFirestore() => {
+    'date': Timestamp.fromDate(date),
     'type': type,
     'amount': amount,
     'notes': notes,
+    'isDemo': isDemo,
   };
 }

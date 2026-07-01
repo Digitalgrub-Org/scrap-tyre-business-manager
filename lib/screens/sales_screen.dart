@@ -32,7 +32,7 @@ class _SalesScreenState extends State<SalesScreen> {
   DateTime _date = DateTime.now();
   Item? _item;
   String _paymentStatus = AppConstants.paymentStatuses.first;
-  int? _editingId;
+  String? _editingId;
 
   double get _total =>
       (double.tryParse(_weight.text) ?? 0) * (double.tryParse(_rate.text) ?? 0);

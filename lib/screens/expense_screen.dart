@@ -22,7 +22,7 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
   final _notes = TextEditingController();
   DateTime _date = DateTime.now();
   String _type = AppConstants.expenseTypes.first;
-  int? _editingId;
+  String? _editingId;
 
   @override
   void dispose() {

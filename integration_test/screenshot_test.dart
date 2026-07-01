@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:provider/provider.dart';
 
 import 'package:scrap_tyre_business_manager/app.dart';
+import 'package:scrap_tyre_business_manager/firebase_options.dart';
 import 'package:scrap_tyre_business_manager/providers/business_provider.dart';
 import 'package:scrap_tyre_business_manager/providers/settings_provider.dart';
 
@@ -16,19 +19,21 @@ void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('capture store screenshots', (tester) async {
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    // Guest sign in so the app proceeds past the login screen.
+    await FirebaseAuth.instance.signInAnonymously();
+
     await tester.pumpWidget(
       MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => SettingsProvider()),
-          ChangeNotifierProvider(
-            create: (_) => BusinessProvider()..initialize(),
-          ),
+          ChangeNotifierProvider(create: (_) => BusinessProvider()),
         ],
         child: const ScrapTyreApp(),
       ),
     );
 
-    // Wait for the database load to finish (onboarding or home shell appears).
+    // Wait for the user's data to finish loading (onboarding or home shell appears).
     await _waitFor(
       tester,
       () =>

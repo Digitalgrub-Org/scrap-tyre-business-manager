@@ -16,7 +16,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => SettingsProvider()),
-        ChangeNotifierProvider(create: (_) => BusinessProvider()..initialize()),
+        ChangeNotifierProvider(create: (_) => BusinessProvider()),
       ],
       child: const ScrapTyreApp(),
     ),

@@ -11,7 +11,7 @@ class StockEntry {
     required this.totalStockValue,
   });
 
-  final int itemId;
+  final String itemId;
   final String itemName;
   final String category;
   final String unit;
@@ -24,16 +24,4 @@ class StockEntry {
   bool get isLowStock => unit == 'KG'
       ? availableWeight <= lowStockThreshold
       : availableQuantity <= lowStockThreshold;
-
-  factory StockEntry.fromMap(Map<String, Object?> map) => StockEntry(
-    itemId: map['item_id']! as int,
-    itemName: map['item_name']! as String,
-    category: map['category']! as String,
-    unit: map['unit']! as String,
-    lowStockThreshold: (map['low_stock_threshold']! as num).toDouble(),
-    availableQuantity: (map['available_quantity']! as num).toDouble(),
-    availableWeight: (map['available_weight']! as num).toDouble(),
-    averagePurchaseRate: (map['average_purchase_rate']! as num).toDouble(),
-    totalStockValue: (map['total_stock_value']! as num).toDouble(),
-  );
 }

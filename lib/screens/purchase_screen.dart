@@ -30,7 +30,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
   DateTime _date = DateTime.now();
   Item? _item;
   String _paymentType = AppConstants.paymentTypes.first;
-  int? _editingId;
+  String? _editingId;
 
   double get _total =>
       (double.tryParse(_weight.text) ?? 0) * (double.tryParse(_rate.text) ?? 0);

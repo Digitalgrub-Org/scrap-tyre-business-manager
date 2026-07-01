@@ -13,7 +13,7 @@ void main() {
           date: date,
           supplierName: 'Supplier',
           vehicleNumber: 'TN 01 A 1',
-          itemId: 1,
+          itemId: '1',
           itemName: 'Car Tyre',
           quantity: 10,
           weight: 100,
@@ -27,7 +27,7 @@ void main() {
         Sale(
           date: date,
           customerName: 'Customer',
-          itemId: 1,
+          itemId: '1',
           itemName: 'Car Tyre',
           quantity: 5,
           weight: 50,
@@ -54,7 +54,7 @@ void main() {
         Sale(
           date: DateTime(2026, 5, 25),
           customerName: 'A',
-          itemId: 1,
+          itemId: '1',
           itemName: 'Tube KG',
           quantity: 0,
           weight: 10,
@@ -67,7 +67,7 @@ void main() {
         Sale(
           date: DateTime(2026, 5, 26),
           customerName: 'B',
-          itemId: 1,
+          itemId: '1',
           itemName: 'Tube KG',
           quantity: 0,
           weight: 10,

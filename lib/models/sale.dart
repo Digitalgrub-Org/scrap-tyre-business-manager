@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Sale {
   const Sale({
     this.id,
@@ -12,12 +14,13 @@ class Sale {
     required this.transportCharges,
     required this.paymentStatus,
     required this.notes,
+    this.isDemo = false,
   });
 
-  final int? id;
+  final String? id;
   final DateTime date;
   final String customerName;
-  final int itemId;
+  final String itemId;
   final String itemName;
   final double quantity;
   final double weight;
@@ -26,8 +29,9 @@ class Sale {
   final double transportCharges;
   final String paymentStatus;
   final String notes;
+  final bool isDemo;
 
-  Sale copyWith({int? id, DateTime? date}) => Sale(
+  Sale copyWith({String? id, DateTime? date}) => Sale(
     id: id,
     date: date ?? this.date,
     customerName: customerName,
@@ -40,34 +44,37 @@ class Sale {
     transportCharges: transportCharges,
     paymentStatus: paymentStatus,
     notes: notes,
+    isDemo: isDemo,
   );
 
-  factory Sale.fromMap(Map<String, Object?> map) => Sale(
-    id: map['id'] as int?,
-    date: DateTime.parse(map['date']! as String),
-    customerName: map['customer_name']! as String,
-    itemId: map['item_id']! as int,
-    itemName: map['item_name']! as String,
-    quantity: (map['quantity']! as num).toDouble(),
-    weight: (map['weight']! as num).toDouble(),
-    rate: (map['rate']! as num).toDouble(),
-    totalAmount: (map['total_amount']! as num).toDouble(),
-    transportCharges: (map['transport_charges']! as num).toDouble(),
-    paymentStatus: map['payment_status']! as String,
-    notes: (map['notes'] as String?) ?? '',
+  factory Sale.fromFirestore(String id, Map<String, dynamic> data) => Sale(
+    id: id,
+    date: (data['date']! as Timestamp).toDate(),
+    customerName: data['customerName']! as String,
+    itemId: data['itemId']! as String,
+    itemName: data['itemName']! as String,
+    quantity: (data['quantity']! as num).toDouble(),
+    weight: (data['weight']! as num).toDouble(),
+    rate: (data['rate']! as num).toDouble(),
+    totalAmount: (data['totalAmount']! as num).toDouble(),
+    transportCharges: (data['transportCharges']! as num).toDouble(),
+    paymentStatus: data['paymentStatus']! as String,
+    notes: (data['notes'] as String?) ?? '',
+    isDemo: (data['isDemo'] as bool?) ?? false,
   );
 
-  Map<String, Object?> toMap() => {
-    if (id != null) 'id': id,
-    'date': date.toIso8601String(),
-    'customer_name': customerName,
-    'item_id': itemId,
+  Map<String, Object?> toFirestore() => {
+    'date': Timestamp.fromDate(date),
+    'customerName': customerName,
+    'itemId': itemId,
+    'itemName': itemName,
     'quantity': quantity,
     'weight': weight,
     'rate': rate,
-    'total_amount': totalAmount,
-    'transport_charges': transportCharges,
-    'payment_status': paymentStatus,
+    'totalAmount': totalAmount,
+    'transportCharges': transportCharges,
+    'paymentStatus': paymentStatus,
     'notes': notes,
+    'isDemo': isDemo,
   };
 }

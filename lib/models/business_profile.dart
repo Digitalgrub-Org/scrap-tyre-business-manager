@@ -23,20 +23,20 @@ class BusinessProfile {
     taxId: '',
   );
 
-  factory BusinessProfile.fromMap(Map<String, Object?> map) => BusinessProfile(
-    businessName: (map['business_name'] as String?) ?? '',
-    ownerName: (map['owner_name'] as String?) ?? '',
-    phone: (map['phone'] as String?) ?? '',
-    address: (map['address'] as String?) ?? '',
-    taxId: (map['tax_id'] as String?) ?? '',
-  );
+  factory BusinessProfile.fromFirestore(Map<String, dynamic> data) =>
+      BusinessProfile(
+        businessName: (data['businessName'] as String?) ?? '',
+        ownerName: (data['ownerName'] as String?) ?? '',
+        phone: (data['phone'] as String?) ?? '',
+        address: (data['address'] as String?) ?? '',
+        taxId: (data['taxId'] as String?) ?? '',
+      );
 
-  Map<String, Object?> toMap() => {
-    'id': 1,
-    'business_name': businessName,
-    'owner_name': ownerName,
+  Map<String, Object?> toFirestore() => {
+    'businessName': businessName,
+    'ownerName': ownerName,
     'phone': phone,
     'address': address,
-    'tax_id': taxId,
+    'taxId': taxId,
   };
 }
