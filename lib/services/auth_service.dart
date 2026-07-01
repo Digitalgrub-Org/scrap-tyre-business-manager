@@ -10,6 +10,12 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   static bool _googleReady = false;
 
+  // Web/server OAuth client from the Firebase project. Passing this as the
+  // serverClientId makes Google return an idToken whose audience Firebase
+  // accepts (required for Android; harmless on iOS).
+  static const _serverClientId =
+      '926061340226-88h0khhc3ahehd92qkqh62oqrf3qpu9u.apps.googleusercontent.com';
+
   Stream<User?> authStateChanges() => _auth.authStateChanges();
   User? get currentUser => _auth.currentUser;
 
@@ -41,7 +47,7 @@ class AuthService {
   Future<UserCredential> signInWithGoogle() async {
     final google = GoogleSignIn.instance;
     if (!_googleReady) {
-      await google.initialize();
+      await google.initialize(serverClientId: _serverClientId);
       _googleReady = true;
     }
     final account = await google.authenticate();
